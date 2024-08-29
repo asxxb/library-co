@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+
+@auth
+  <div>welcome {{auth()->user()->name}}</div>  
+@endauth
 <div class="container mx-auto px-4 py-6">
     <h1 class="text-3xl font-bold mb-4">Your Books</h1>
     <a href="{{ route('books.create') }}" class="inline-block px-4 py-2 bg-indigo-600 text-white font-semibold rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 mb-6">Add New Book</a>
