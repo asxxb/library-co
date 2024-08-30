@@ -35,7 +35,29 @@ class BookController extends Controller
             'author' => 'required',
         ]);
 
-        auth()->user()->books()->create($request->all());
+
+        //method 1
+        //auth()->user()->books()->create($request->all());
+
+        //method 2
+        // $book = new Book();
+        // $book->title = $request->title;
+        // $book->author = $request->author;
+        // $book->description = $request->description;
+
+        // // Associate the book with the currently authenticated user
+        // $book->user_id = auth()->id();
+
+        // // Save the book to the database
+        // $book->save();
+
+        Book::create([
+            'title' => $request->title,
+            'author' => $request->author,
+            'description' => $request->description,
+            'user_id' => auth()->id(),
+        ]);
+
         return redirect()->route('books.index');
 
 
