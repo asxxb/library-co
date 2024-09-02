@@ -20,6 +20,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'image'
     ];
 
     /**
@@ -44,6 +46,12 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+
+    public $roles = ['admin', 'vendor', 'customer'];
+
+
+
 
     public function books()
     {

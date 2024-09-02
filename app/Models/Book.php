@@ -9,11 +9,16 @@ class Book extends Model
 {
     use HasFactory;
 
+
+
     protected $fillable = [
         'title',
         'author',
         'description',
         'user_id',
+
+        'slug',
+        'price'
     ];
     public function user()
     {
@@ -29,4 +34,6 @@ class Book extends Model
     {
         return $this->belongsToMany(Tag::class);
     }
+
+
 }
